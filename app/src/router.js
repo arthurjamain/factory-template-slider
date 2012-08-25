@@ -4,9 +4,12 @@ define([
   Router
 ) {
 
-  var t = Router({
+  return Router({
+
 
     setRoutes: function(app) {
+      'use strict';
+      
       this.app = app;
 
       this.route('', 'home', app.homeController.index);
@@ -17,7 +20,5 @@ define([
     }
 
   });
-
- return t;
 
 });
