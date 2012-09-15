@@ -17,16 +17,14 @@ require([
 ) {
 
   'use strict';
-
+  
   var App = function(options) {
-
     this.initialize();
   };
 
   _.extend(App.prototype, Backbone.Events, {
 
     initialize: function() {
-      window.console.log('App initialized.');
       /**
       * Create the controllers
       **/
@@ -43,6 +41,8 @@ require([
       this.router = Router;
       this.router.setRoutes(this);
       this.router.historyStart();
+
+      window.console.log('App initialized.');
     },
 
     createSlider: function() {
