@@ -1,0 +1,194 @@
+/*
+  Consistency fixes
+  adopted from http://necolas.github.com/normalize.css/
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+iframe,
+nav,
+section,
+audio,
+canvas,
+video {
+  display: block;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body {
+  font-size: 100%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+b,
+strong {
+  font-weight: bold;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a img,
+img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+}
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  font-size: 100%;
+  line-height: normal;
+  vertical-align: baseline;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+textarea {
+  overflow: auto;
+}
+/*
+  Margin, padding, and border resets
+  except for form elements
+*/
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+html,
+body {
+  height: 100%;
+}
+#container {
+  height: 100%;
+  width: 100%;
+}
+#slider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: #0F0;
+}
+#slider .knob {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  bottom: 5px;
+  width: 200px;
+  background: #00F;
+  cursor: pointer;
+}
+#slider #dslist {
+  overflow: hidden;
+}
+#slider #dslist ul {
+  height: 100%;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+#slider #dslist ul li {
+  display: block;
+  height: 60px;
+  width: 140px;
+  margin: 10px 5px;
+  background: blue;
+  position: relative;
+  box-sizing: border-box;
+  float: left;
+}
+#slider #dslist ul li a {
+  color: #FFF;
+  text-decoration: none;
+}
+#slider #selector {
+  position: absolute;
+  border: 4px solid #F0F;
+  bottom: 0;
+  left: 50%;
+  height: 84px;
+  width: 180px;
+  margin-left: -90px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+#viewport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 80px;
+  background: #F00;
+}

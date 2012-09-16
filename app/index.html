@@ -27,7 +27,7 @@
     </script>
 
     <script type="text/template" id="tpl-slider">
-        <div class="knob">
+        <div id="knob">
         </div>
     </script>
 
@@ -35,6 +35,21 @@
 
     </script>
 
+    <script type="text/template" id="tpl-selector">
+        
+    </script>
+
+    <script type="text/template" id="tpl-ds-list">
+        <ul>
+            <%= children %>
+        </ul>
+    </script>
+
+    <script type="text/template" id="tpl-ds-list-item">
+        <li>
+            <a href="#details/<%=item.id%>"><%=item.name%></a>
+        </li>
+    </script>
 
     <sctipt type="text/javascript" src="src/lib/modernizr.js"></script>
     <!--<script data-joshfire-bootstrap src="http://preview-staging.joshfireapps.com/bootstrap/503816dbc67053020000001d/50377a5806f9090200000071/phone/"></script>-->
