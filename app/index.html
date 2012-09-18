@@ -18,7 +18,7 @@
 
 	<body>
 
-    <div id="container">
+    <div id="slider">
 
     </div>
 
@@ -39,6 +39,23 @@
         
     </script>
 
+    <script type="text/template" id="tpl-ds-cards">
+        <ul>
+            <%= children %>
+        </ul>
+    </script>
+
+    <script type="text/template" id="tpl-ds-cards-item">
+        <li>
+            <div class="loader">
+            </div>
+
+            <section class="<%=translateType(item.config.outputType)%>">
+                <%=childlist%>
+            </section>
+        </li>
+    </script>
+
     <script type="text/template" id="tpl-ds-list">
         <ul>
             <%= children %>
@@ -52,7 +69,7 @@
     </script>
 
     <sctipt type="text/javascript" src="src/lib/modernizr.js"></script>
-    <!--<script data-joshfire-bootstrap src="http://preview-staging.joshfireapps.com/bootstrap/503816dbc67053020000001d/50377a5806f9090200000071/phone/"></script>-->
+    <script data-joshfire-bootstrap src="http://preview.joshfireapps.com/bootstrap/5057825997e9940200000aa1/503b821309f0f202000003f7/phone/"></script>
     <script data-main="app" src="joshfire-framework/lib/adapters/ios/bootstrap.js"></script>
 	</body>
 

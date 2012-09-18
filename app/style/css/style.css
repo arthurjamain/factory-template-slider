@@ -139,7 +139,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 80px;
+  top: 0;
   background: #0F0;
 }
 #slider .knob {
@@ -152,6 +152,13 @@ body {
   cursor: pointer;
 }
 #slider #dslist {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 20;
+  background: #0F0;
   overflow: hidden;
 }
 #slider #dslist ul {
@@ -173,15 +180,69 @@ body {
   color: #FFF;
   text-decoration: none;
 }
+#slider #dscards {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 80px;
+  background: #0FF;
+  overflow: hidden;
+  z-index: 10;
+}
+#slider #dscards ul {
+  height: 100%;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: -webkit-transform 500ms;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
+#slider #dscards ul li {
+  display: block;
+  float: left;
+  height: 100%;
+  background: #F00;
+  margin: 0 30px;
+  -webkit-backface-visibility: hidden;
+  position: relative;
+}
+#slider #dscards ul li section {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+#slider #dscards ul li .loader {
+  background: transparent url(../../img/loader.gif) no-repeat center center;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+#slider #dscards ul li:first-child {
+  margin-left: 0;
+}
+#slider #dscards ul li:last-child {
+  margin-right: 0;
+}
 #slider #selector {
   position: absolute;
-  border: 4px solid #F0F;
+  outline: 4px solid #F0F;
   bottom: 0;
   left: 50%;
   height: 84px;
   width: 180px;
   margin-left: -90px;
-  z-index: 10;
+  z-index: 30;
   box-sizing: border-box;
 }
 #viewport {

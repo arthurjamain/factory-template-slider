@@ -1,6 +1,7 @@
 require([
   'joshlib!vendor/backbone',
   'joshlib!vendor/underscore',
+  'joshlib!factorycollection',
   'src/router',
   'src/controllers/home',
   'src/views/container',
@@ -9,6 +10,7 @@ require([
 ], function(
   Backbone,
   _,
+  FactoryCollection,
   Router,
   HomeController,
   ContainerView,
@@ -31,11 +33,16 @@ require([
       this.homeController = new HomeController(this);
       
       /**
+      * Create the DS
+      **/
+      this.createDatasourceCollection();
+
+      /**
       * Create the views
       **/
-      this.createSlider();
       this.createViewport();
-      this.createContainer();
+      this.createSlider();
+      this.sliderView.render();
 
       /* And we're off. */
       this.router = Router;
@@ -47,7 +54,9 @@ require([
 
     createSlider: function() {
       this.sliderView = new SliderView({
-        className: 'slider'
+        className: 'slider',
+        viewport: this.viewport,
+        collection: this.datasources
       });
     },
     createViewport: function() {
@@ -56,18 +65,28 @@ require([
       });
     },
 
-    createContainer: function() {
-      this.containerView = new ContainerView({
-        el: '#container',
-        slider: this.sliderView,
-        viewport: this.viewport
-      });
-      this.containerView.render();
+    createDatasourceCollection: function() {
+      
+      this.datasources = new Backbone.Collection(window.Joshfire.factory.getDataSource('main').children);
+      
     }
 
   });
 
-
+  window.translateType = function(rawtype) {
+    switch(rawtype) {
+      case 'CreativeWork':
+        return 'creativework';
+      case 'Article/Status':
+        return 'status';
+      case 'VideoObject':
+        return 'video';
+      case 'AudioObject':
+        return 'audio';
+      case 'BlogPosting':
+        return 'post';
+    }
+  };
 
   /**
   * Check compatibility and launch the app.
