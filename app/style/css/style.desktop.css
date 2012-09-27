@@ -130,6 +130,9 @@ html,
 body {
   height: 100%;
 }
+.clearfix {
+  clear: both;
+}
 #container {
   height: 100%;
   width: 100%;
@@ -140,7 +143,7 @@ body {
   left: 0;
   right: 0;
   top: 0;
-  background: #0F0;
+  background: #f8f6f4 url(../../img/linen.jpg) repeat top left;
 }
 #slider .knob {
   position: absolute;
@@ -148,7 +151,6 @@ body {
   top: 5px;
   bottom: 5px;
   width: 200px;
-  background: #00F;
   cursor: pointer;
 }
 #slider #dslist {
@@ -158,8 +160,11 @@ body {
   right: 0;
   height: 80px;
   z-index: 20;
-  background: #0F0;
+  background: transparent url(../../img/darknoise.jpg) repeat top left;
   overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 #slider #dslist ul {
   height: 100%;
@@ -171,14 +176,29 @@ body {
   height: 60px;
   width: 140px;
   margin: 10px 5px;
-  background: blue;
   position: relative;
   box-sizing: border-box;
   float: left;
+  border-radius: 3px;
+  background: transparent url(../../img/lightnoise.jpg?) repeat top left;
+  box-shadow: inset 0 1px 10px -1px rgba(0, 0, 0, 0.9), 0 -1px 0px 0px rgba(255, 255, 255, 0.7), 0 4px 5px -3px #000000;
+  font-family: Helvetica;
+  color: #333;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 #slider #dslist ul li a {
-  color: #FFF;
+  color: #333;
+  display: block;
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+  text-shadow: 0 1px 0 #ffffff, 0 2px 15px rgba(0, 0, 0, 0.6);
   text-decoration: none;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 #slider #dscards {
   position: absolute;
@@ -186,14 +206,12 @@ body {
   left: 0;
   right: 0;
   bottom: 80px;
-  background: #0FF;
+  background: #f8f4f0 url(../../img/linen.jpg) repeat top left;
   overflow: hidden;
   z-index: 10;
 }
-#slider #dscards ul {
+#slider #dscards > ul {
   height: 100%;
-  -webkit-user-select: none;
-  -webkit-user-drag: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -201,16 +219,17 @@ body {
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
 }
-#slider #dscards ul li {
+#slider #dscards > ul > li {
   display: block;
   float: left;
   height: 100%;
-  background: #F00;
+  background: #d1cccc url(../../img/lightnoise.jpg?) repeat top left;
   margin: 0 30px;
   -webkit-backface-visibility: hidden;
   position: relative;
+  box-shadow: 0 21px 8px -13px rgba(0, 0, 0, 0.6);
 }
-#slider #dscards ul li section {
+#slider #dscards > ul > li section {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -218,8 +237,73 @@ body {
   left: 0;
   z-index: 5;
 }
-#slider #dscards ul li .loader {
-  background: transparent url(../../img/loader.gif) no-repeat center center;
+#slider #dscards > ul > li section h2 {
+  display: block;
+  padding: 15px;
+  font-family: 'Helvetica Neue';
+  font-weight: bold;
+  color: #333;
+  background-position: 0% 0%;
+  text-shadow: 0 1px white;
+  border-bottom: 1px solid transparent;
+  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.07) 0%, transparent 100%);
+  box-shadow: 0 -9px 22px 5px rgba(0, 0, 0, 0.4);
+}
+#slider #dscards > ul > li section ul {
+  width: 100%;
+}
+#slider #dscards > ul > li section ul li {
+  display: block;
+  border-top: 1px solid white;
+  background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.04) 100%);
+  border-bottom: #FFF 1px solid;
+}
+#slider #dscards > ul > li section ul li:first-child {
+  border-top: none;
+}
+#slider #dscards > ul > li section ul li a {
+  display: block;
+  text-decoration: none;
+  font-family: 'Helvetica Neue';
+  color: #333;
+  position: relative;
+}
+#slider #dscards > ul > li section ul li.video .thumb {
+  width: 145px;
+  margin: 20px 20px;
+  float: left;
+  border-bottom: 1px solid white;
+  position: relative;
+  height: 105px;
+  border-right: 1px solid white;
+  border-radius: 0;
+  overflow: hidden;
+}
+#slider #dscards > ul > li section ul li.video .thumb img {
+  width: 100%;
+  height: 100%;
+}
+#slider #dscards > ul > li section ul li.video .meta {
+  margin: 19px 20px 20px 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  min-height: 87px;
+  float: left;
+  font-weight: lighter;
+  text-shadow: 0 1px 0 white;
+}
+#slider #dscards > ul > li section ul li.video .meta span {
+  display: block;
+}
+#slider #dscards > ul > li section .entrieslist {
+  height: 100%;
+  position: relative;
+}
+#slider #dscards > ul > li .loader {
+  background-image: url(../../img/loader.gif), url(../../img/lightnoise.jpg);
+  background-position: center center, top left;
+  background-repeat: no-repeat, repeat;
   display: block;
   width: 100%;
   height: 100%;
@@ -228,15 +312,14 @@ body {
   left: 0;
   z-index: 10;
 }
-#slider #dscards ul li:first-child {
+#slider #dscards > ul li:first-child {
   margin-left: 0;
 }
-#slider #dscards ul li:last-child {
+#slider #dscards > ul li:last-child {
   margin-right: 0;
 }
 #slider #selector {
   position: absolute;
-  outline: 4px solid #F0F;
   bottom: 0;
   left: 50%;
   height: 84px;
@@ -244,6 +327,7 @@ body {
   margin-left: -90px;
   z-index: 30;
   box-sizing: border-box;
+  pointer-events: none;
 }
 #viewport {
   position: absolute;
@@ -251,5 +335,4 @@ body {
   left: 0;
   right: 0;
   bottom: 80px;
-  background: #F00;
 }

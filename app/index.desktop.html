@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" type="text/css" href="style/css/style.desktop.css">
+
+    <style>
+      /* Loading CSS goes here */
+    </style>
+
+	</head>
+
+	<body>
+
+    <div id="slider">
+
+    </div>
+
+    <script type="text/template" id="tpl-container">
+
+    </script>
+
+    <script type="text/template" id="tpl-slider">
+        <div id="knob">
+        </div>
+    </script>
+
+    <script type="text/template" id="tpl-viewport">
+
+    </script>
+
+    <script type="text/template" id="tpl-selector">
+        
+    </script>
+
+    <script type="text/template" id="tpl-ds-cards">
+        <ul>
+            <%= children %>
+        </ul>
+    </script>
+
+    <script type="text/template" id="tpl-ds-cards-item">
+        <li>
+            <section class="joshfire-ds-<%=offset%>">
+                <div class="loader">
+                </div>
+                <header class="dsheader">
+                    <h2></h2>
+                </header>
+                <div class="entrieslist">
+                </div>
+            </section>
+        </li>
+    </script>
+
+    <script type="text/template" id="tpl-ds-list">
+        <ul>
+            <%= children %>
+        </ul>
+    </script>
+
+    <script type="text/template" id="tpl-ds-list-item">
+        <li>
+            <a href="#details/<%=item.id%>"><%=item.name%></a>
+        </li>
+    </script>
+    
+    <script type="text/template" id="tpl-cards-list">
+        <ul>
+            <%= children %>
+        </ul>
+    </script>
+
+    <script type="text/template" id="tpl-cards-list-item-creativework">
+        <li class="creativework">
+            <a href="#details/<%=item.id%>">
+            
+            <%=item.name%>
+            </a>
+        </li>
+    </script>
+
+    <script type="text/template" id="tpl-cards-list-item-status">
+        <li class="status">
+            <a href="#details/<%=item.id%>"><%=item.name%></a>
+        </li>
+    </script>
+
+    <script type="text/template" id="tpl-cards-list-item-video">
+        <li class="video">
+            <a href="#details/<%=item.id%>">
+                <div style="background: transparent url(<%=item.image.contentURL%>) no-repeat top left; background-size: cover;" class="thumb">
+                    <span class="duration"><%=item.duration%></span>
+                </div>
+                <div class="meta-left">
+                    <span class="author">By <%=item.author.name%></span>
+                    <span class="date"><%=item.uploadDate%></span>
+                </div>
+                <div class="meta">
+                    <span class="name"><%=item.name%></span>
+                    <span class="description"><%=item.name%></span>
+                </div>
+                <div class="clearfix"></div>
+            </a>
+        </li>
+    </script>
+
+    <script type="text/template" id="tpl-cards-list-item-audio">
+        <li class="audio">
+            <a href="#details/<%=item.id%>"><%=item.name%></a>
+        </li>
+    </script>
+
+    <script type="text/template" id="tpl-cards-list-item-post">
+        <li class="post">
+            <a href="#details/<%=item.id%>"><%=item.name%></a>
+        </li>
+    </script>
+
+    <script type="text/template" id="tpl-cards-list-item-image">
+        <li class="post">
+            <a href="#details/<%=item.id%>"><%=item.name%></a>
+        </li>
+    </script>
+
+    <sctipt type="text/javascript" src="src/lib/modernizr.js"></script>
+    <script data-joshfire-bootstrap src="http://preview.joshfireapps.com/bootstrap/5057825997e9940200000aa1/503b821309f0f202000003f7/phone/"></script>
+    <script data-main="app" src="joshfire-framework/lib/adapters/ios/bootstrap.js"></script>
+	</body>
+
+</html>

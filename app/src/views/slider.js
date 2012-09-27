@@ -33,22 +33,27 @@ define([
       this.viewport = options.viewport;
       this.selector = new Selector({});
       this.dsroot = options.collection;
+      this.app = options.app;
 
       this.dsList = new DsList({
         collection: this.dsroot,
         templateEl: '#tpl-ds-list',
         itemTemplateEl: '#tpl-ds-list-item'
       });
+
       this.dsCards = new DsCards({
         collection: this.dsroot,
         templateEl: '#tpl-ds-cards',
+        itemTemplateEl: '#tpl-ds-cards-item',
         itemFactory: function(model, offset) {
           return new DsCardsListItem({
             model: model,
             templateEl: '#tpl-ds-cards-item'
           });
-        }
+        },
+        app: this.app
       });
+
       _.extend(options, {
         children: {
           selector: this.selector,
@@ -74,14 +79,16 @@ define([
       this.initCardsMiddlePosition();
 
       try {
-        $(document).bind('touchstart mousedown', _.bind(this.evtDragstart, this));
-        $(document).bind('touchmove mousemove', _.bind(this.evtDragging, this));
-        $(document).bind('touchend mouseup', _.bind(this.evtDragstop, this));
+        $(this.$knob[0]).bind('touchstart mousedown', _.bind(this.evtDragstart, this));
+        $(this.$knob[0]).bind('touchmove mousemove', _.bind(this.evtDragging, this));
+        $(this.$knob[0]).bind('touchend mouseup', _.bind(this.evtDragstop, this));
       }
       catch(e) {
         console.log('Drag binding error : ' + e.toString());
       }
-     //$(document).trigger('mouseup');
+
+      Layout.prototype.enhance.call(this);
+
     },
 
     initKnobWidth: function() {
@@ -222,12 +229,12 @@ define([
         scaledpos = this.$cards.css('-webkit-transform').split('translate3d(')[1].split('px')[0];
       }
       
-      this.scaledPosDifference = scaledpos;
       scaledpos -= (this.aCardsLiWidth+60) * 0.85 / 2;
-      this.scaledPosDifference -= scaledpos;
+      this.scaledPosDifference = scaledpos;
+      this.scaledPosDifference += (this.aCardsLiWidth - (this.aCardsLiWidth*0.85))/2;
       
       this.$cards.css({
-        '-webkit-transform': 'scale(0.85) translate3d(' + (scaledpos) + 'px, 0, 0)',
+        '-webkit-transform': 'scale(0.85) translate3d(' + (this.scaledPosDifference) + 'px, 0, 0)',
         '-webkit-transition': '-webkit-transform 100ms ease-in-out'
       });
 

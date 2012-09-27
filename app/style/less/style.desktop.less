@@ -1,0 +1,246 @@
+@import '../style/less/normalize.less';
+@import '../style/less/reset.less';
+
+html, body {
+  height: 100%;
+}
+
+.clearfix {
+  clear: both;
+}
+
+#container {
+  height: 100%;
+  width: 100%;
+}
+
+#slider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  background: #F8F6F4 url(../../img/linen.jpg) repeat top left;
+
+  .knob {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    bottom: 5px;
+    width: 200px;
+    cursor: pointer;
+  }
+
+  #dslist {
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 20;
+    background: transparent url(../../img/darknoise.jpg) repeat top left;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+
+    ul {
+      height: 100%;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+      
+      li {
+        display: block;
+        height: 60px;
+        width: 140px;
+        margin: 10px 5px;
+        position: relative;
+        box-sizing: border-box;
+        float: left;
+        border-radius: 3px;
+        background: transparent url(../../img/lightnoise.jpg?) repeat top left;
+        box-shadow: inset 0 1px 10px -1px rgba(0, 0, 0, 0.9), 0 -1px 0px 0px rgba(255, 255, 255, 0.7), 0 4px 5px -3px black;
+        font-family: Helvetica;
+        color: #333;
+        -webkit-user-select: none;
+        -webkit-user-drag: none;
+        a {
+          color: #333;
+          display: block;
+          height: 100%;
+          line-height: 60px;
+          text-align: center;
+          text-shadow: 0 1px 0 white, 0 2px 15px rgba(0, 0, 0, 0.6);
+          text-decoration: none;
+          font-size: 16px;
+          -webkit-font-smoothing: antialiased;
+          -webkit-user-select: none;
+          -webkit-user-drag: none;
+        }
+      }
+    }
+  }
+
+  #dscards {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+    background: #F8F4F0 url(../../img/linen.jpg) repeat top left;
+    overflow: hidden;
+
+    z-index: 10;
+    
+    > ul {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    -webkit-transition: -webkit-transform 500ms;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+
+      > li {
+        display: block;
+        float: left;
+        height: 100%;
+        background: #D1CCCC url(../../img/lightnoise.jpg?) repeat top left;
+        margin: 0 30px;
+        -webkit-backface-visibility: hidden;
+        position: relative;
+        box-shadow: 0 21px 8px -13px rgba(0, 0, 0, 0.6);
+        
+        section {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 5;
+
+          h2 {
+            display: block;
+            padding: 15px;
+            font-family: 'Helvetica Neue';
+            font-weight: bold;
+            color: #333;
+            background-position: 0% 0%;
+            text-shadow: 0 1px white;
+            border-bottom: 1px solid transparent;
+            background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.07) 0%, transparent 100%);
+            box-shadow: 0 -9px 22px 5px rgba(0, 0, 0, 0.4);
+          }
+
+          ul {
+
+            width: 100%;
+
+            li {
+              display: block;
+              border-top: 1px solid white;
+              background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.04) 100%);
+              border-bottom: #FFF 1px solid;
+
+              &:first-child {
+                border-top: none;
+              }
+
+              a {
+                display: block;
+                text-decoration: none;
+                font-family: 'Helvetica Neue';
+                color: #333;
+                position: relative;
+              }
+
+              &.video {
+                .thumb {
+                  width: 145px;
+                  margin: 20px 20px;
+                  float: left;
+                  border-bottom: 1px solid white;
+                  position: relative;
+                  height: 105px;
+                  border-right: 1px solid white;
+                  border-radius: 0;
+                  overflow: hidden;
+                  img {
+                    width: 100%;
+                    height: 100%;
+                  }
+                }
+
+                .meta {
+                  margin: 19px 20px 20px 0;
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                  padding-left: 20px;
+                  min-height: 87px;
+                  float: left;
+                  font-weight: lighter;
+                  text-shadow: 0 1px 0 white; 
+
+                  span {
+                    display: block;
+
+                  }
+                }
+              }
+            }
+          }
+
+          .entrieslist {
+            height: 100%;
+            position: relative;
+          }
+
+        }
+
+        .loader {
+          background-image: url(../../img/loader.gif), url(../../img/lightnoise.jpg);
+          background-position: center center, top left;
+          background-repeat: no-repeat, repeat;
+          
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 10;
+        }
+      }
+      li:first-child {
+        margin-left: 0;
+      }
+      li:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  #selector {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 84px;
+    width: 180px;
+    margin-left: -90px;
+    z-index: 30;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+
+}
+
+#viewport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 80px;
+}

@@ -8,7 +8,8 @@ var dest = path.join(__dirname, '/../app/style/css/');
 var compress = false;
 
 var files = [
-  'style'
+  'style.phone',
+  'style.desktop'
 ];
 
 var srcPath = function(file) {
