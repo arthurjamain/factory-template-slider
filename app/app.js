@@ -9,7 +9,8 @@ require([
   'src/views/container',
   'src/views/slider',
   'src/views/viewport',
-  'src/views/dscardslist'
+  'src/views/dscardslist',
+  'src/views/dsdetails'
 ], function(
   Backbone,
   _,
@@ -21,7 +22,8 @@ require([
   ContainerView,
   SliderView,
   Viewport,
-  DsCardsList
+  DsCardsList,
+  Details
 ) {
 
   'use strict';
@@ -52,6 +54,7 @@ require([
       * Create the views
       **/
       this.createViewport();
+      this.createDetails();
       this.createSlider();
       this.sliderView.render();
       this.createDatasourceLists();
@@ -76,6 +79,12 @@ require([
     createViewport: function() {
       this.viewport = new Viewport({
         className: 'viewport'
+      });
+    },
+    createDetails: function() {
+      this.details = new Details({
+        el: '#details',
+        tagName: 'section'
       });
     },
 
