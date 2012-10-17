@@ -245,10 +245,10 @@ define([
 
         var evtX=0;
         if(e.originalEvent && e.originalEvent.touches.length) evtX = e.originalEvent.touches[0].pageX;
-        if(e.originalEvent && e.originalEvent.changedTouches.length)evtX = e.originalEvent.changedTouches[0].pageX;
+        if(e.originalEvent && e.originalEvent.changedTouches.length) evtX = e.originalEvent.changedTouches[0].pageX;
         if(e.x) evtX = e.x;
         if(e.pageX) evtX = e.pageX;
-
+        
         this.$cards.css({
           '-webkit-transition': 'none'
         });
@@ -263,10 +263,10 @@ define([
             oldKnobX = parseInt(oldKnobX.split('translate3d(')[1].split('px')[0], 10);
             oldCardsX = parseInt(oldCardsX.split('translate3d(')[1].split('px')[0], 10);
           }
+
           /* Find the offset of the movement */
           if(!this.prevX) this.prevX = evtX;
           var offset = evtX - this.prevX;
-
 
           this.knobX = oldKnobX + offset;
           this.$knob.css({

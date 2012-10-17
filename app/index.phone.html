@@ -96,24 +96,43 @@ rze
     </script>
 
     <script type="text/template" id="tpl-cards-list-item-status">
-        <li class="status">
-            <a href="#details/<%=item.id%>"><%=item.name%></a>
+        <li class="clear-fix status">
+
+            <div class="preview clear-fix">
+
+                <div class="image">
+                    <img class="avatar" src="<%=item.author[0].image.contentURL%>" />
+                </div>
+                <div class="meta">
+                    <p class="fullname">
+                        <%=item.author[0]['name'] %>
+                    </p>
+                    <p class="nick">
+                        <a href="#">@<%=item.author[0]['foaf:nick']%></a>
+                    </p>
+                    <span class="date"><%=item.datePublished%></span>
+                </div>
+
+                <div class="tweet">
+                    <%=item.name%>
+                </div>
+            </div>
         </li>
     </script>
 
     <script type="text/template" id="tpl-cards-list-item-video">
         <li class="video">
             <a href="#details/<%=item.id%>">
-                <div style="background: transparent url(<%=item.image.contentURL%>) no-repeat top left; background-size: cover;" class="thumb">
-                    <span class="duration"><%=item.duration%></span>
-                </div>
+                <img src="<%=item.image.contentURL%>" id="coverimage-<%=model.cid%>" />
+                    
+                <span class="duration"><%=item.duration%></span>
                 <div class="meta-left">
                     <span class="author">By <%=item.author[0].name%></span>
                     <span class="date"><%=item.uploadDate%></span>
                 </div>
                 <div class="meta">
                     <span class="name"><%=item.name%></span>
-                    <span class="description"><%=item.name%></span>
+                    <span class="description"><%=item.description%></span>
                 </div>
                 <div class="clearfix"></div>
             </a>
@@ -128,17 +147,34 @@ rze
 
     <script type="text/template" id="tpl-cards-list-item-post">
         <li class="post">
-            <a href="#details/<%=item.id%>"><%=item.name%></a>
+            <div class="wrapper">
+                <header class="clear-fix">
+                    <h2><%= item.name %></h2>
+                    <p class="author"><%= item.author.name %></p>
+                    <p class="date"><%= item.datePublished %></p>
+                </header>
+                <div class="description">
+                    <% if (typeof item.image !== 'undefined') { %> <p class="image"> <img src="<%=item.image.contentURL%>"></p> <% } %>
+                    <p class="text"><%= item.description %></p>
+                </div>
+            </div>
         </li>
     </script>
 
     <script type="text/template" id="tpl-cards-list-item-image">
-        <li class="post">
-            <a href="#details/<%=item.id%>"><%=item.name%></a>
+        <li class="image">
+            <div class="picture">
+                <img src="<%=item.contentURL%>" />
+            </div>
+            <div class="meta">
+                <p class="author"><%= item.author[0].name %></p>
+                <p class="date"><%= item.datePublished %></p>
+                <p class="name"><%= item.name %></p>
+            </div>
         </li>
     </script>
 
-    <sctipt type="text/javascript" src="src/lib/modernizr.js"></script>
+    <script type="text/javascript" src="src/lib/pixastic.custom.js"></script>
     <script data-joshfire-bootstrap src="http://preview.joshfireapps.com/bootstrap/5057825997e9940200000aa1/503b821309f0f202000003f7/phone/"></script>
     <script data-main="app" src="joshfire-framework/lib/adapters/ios/bootstrap.js"></script>
 	</body>

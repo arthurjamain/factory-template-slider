@@ -10,7 +10,8 @@ require([
   'src/views/slider',
   'src/views/viewport',
   'src/views/dscardslist',
-  'src/views/dsdetails'
+  'src/views/dsdetails',
+  'src/views/videolistitem'
 ], function(
   Backbone,
   _,
@@ -23,7 +24,8 @@ require([
   SliderView,
   Viewport,
   DsCardsList,
-  Details
+  Details,
+  VideoListItem
 ) {
 
   'use strict';
@@ -94,13 +96,30 @@ require([
           collection: this.datasourcesEntriesCollections[i],
           el: window.$('.joshfire-ds-'+i+' .entrieslist', this.sliderView.children.dscards.el)[0],
           itemFactory: function(model, offset) {
+            console.log(model.collection);
             var simpletype = window.translateType(model.get('@type'));
             var template = '#tpl-cards-list-item-'+simpletype;
-            return new Item({
-              model: model,
-              offset: offset,
-              templateEl: template
-            });
+            var retval;
+            switch(simpletype) {
+              case 'video':
+                retval = new VideoListItem({
+                  model: model,
+                  offset: offset,
+                  templateEl: template
+                });
+                break;
+              case 'vachier':
+              break;
+              default:
+                retval = new Item({
+                  model: model,
+                  offset: offset,
+                  templateEl: template
+                });
+                break;
+            }
+
+            return retval;
           },
           templateEl: '#tpl-cards-list',
           scroller: true,
